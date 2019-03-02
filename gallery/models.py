@@ -7,11 +7,17 @@ class Location(models.Model):
     def __str__(self):
         return self.first_name
 
+    def save_location(self):
+        self.save()
+
 class Category(models.Model):
     name = models.CharField(max_length =25)
 
     def __str__(self):
         return self.name
+
+    def save_category(self):
+        self.save()
 
 
 class Image(models.Model):
@@ -19,10 +25,13 @@ class Image(models.Model):
     image_name = models.CharField(max_length =20)
     image_description = models.TextField(max_length =250)
     image_location = models.ForeignKey(Location)
-    image_category = models.ManyToManyField(Category)
+    image_category = models.ForeignKey(Category)
 
     def __str__(self):
         return self.image_name
+
+    def save_image(self):
+        self.save()
 
     class Meta:
         ordering = ['image_name']
