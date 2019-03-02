@@ -35,3 +35,13 @@ class Image(models.Model):
 
     class Meta:
         ordering = ['image_name']
+
+    @classmethod
+    def get_image_by_id(cls):
+        images = cls.objects.get(pk=id)
+        return images
+
+    @classmethod
+    def retrive_all_images(cls):
+        images = Image.objects.all()
+        return images    
