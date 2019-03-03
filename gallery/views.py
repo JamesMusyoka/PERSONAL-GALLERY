@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse,Http404
+from .models import Image
 
 
 def welcome(request):
@@ -8,7 +9,8 @@ def welcome(request):
 
 
 def gallery(request):
-    return render(request, 'templates/gallery.html')
+       gallery = Image.objects.all()
+       return render(request, 'gallery.html', {"gallery":gallery})
 
 def convert_dates(dates):
 
@@ -32,5 +34,5 @@ def search_results(request):
         return render(request, 'search.html', {"message":message, "images": searched_images})
 
     else:
-        message = "You haven't made any searches"
+        message = "You haven't made any terms"
         return render(request, 'search.html', {"message":message})
