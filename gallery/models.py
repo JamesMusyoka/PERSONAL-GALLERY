@@ -44,4 +44,9 @@ class Image(models.Model):
     @classmethod
     def retrive_all_images(cls):
         images = Image.objects.all()
-        return images    
+        return images
+
+    @classmethod
+    def search_by_category(cls,search_term):
+        gallery = cls.objects.filter(image_category_name__icontains=search_term)
+        return gallery    
