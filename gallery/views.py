@@ -9,8 +9,9 @@ def welcome(request):
 
 
 def gallery(request):
-       gallery = Image.objects.all()
-       return render(request, 'gallery.html', {"gallery":gallery})
+       images=Image.objects.all()
+
+       return render(request, 'gallery.html',{'images':images})
 
 def convert_dates(dates):
 
