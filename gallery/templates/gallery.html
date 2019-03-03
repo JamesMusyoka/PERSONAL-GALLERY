@@ -4,14 +4,20 @@
 {% block content %}
 {{block.super}}
 
-<div class="container">
-    <div class="row">
-    <!-- display images -->
-        <div>
-            <h3> {{ gallery_item.image }} </h3>
-            <h4> {{ gallery_item.name }}</h4>
-        </div>
+{% for gallery_item in gallery %}
+
+  <div class="row">
+    <!-- displaying Gallery Images -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h2 class="text-center"> {{ gallery_item.image_name }} </h2>
     </div>
-</div>
+
+    <!--Display gallery images  -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{gallery_item.image.url}}" class="img-responsive" alt="Image">
+    </div>
+
+  </div>
+  {%endfor%}
 
 {% endblock %}
