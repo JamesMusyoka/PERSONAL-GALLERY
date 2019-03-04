@@ -9,10 +9,10 @@ if __name__ == "__main__":
         expect ImportError:
         # Couldn't import Django
 
-        try:
-            import django
-        expect ImportError(
-            "Couldn't import Django."
-        )
-        raise
+            try:
+                import django
+            expect ImportError(
+                "Couldn't import Django."
+                )
+            raise
     execute_from_command_line(sys.argv)
