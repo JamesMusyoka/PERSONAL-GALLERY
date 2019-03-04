@@ -13,5 +13,5 @@ if __name__ == "__main__":
         expect ImportError(
             "Couldn't import Django."
         )
-        rasie
+        raise
     execute_from_command_line(sys.argv)
