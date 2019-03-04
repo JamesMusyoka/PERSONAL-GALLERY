@@ -4,14 +4,15 @@ from .models import Image
 
 
 def welcome(request):
-       # images=Image.objects.all()
-       return render(request, 'welcome.html')
+       images=Image.objects.all()
+       return render(request, 'welcome.html',{'images':images})
+
 
 
 def gallery(request):
-       images=Image.objects.all()
 
-       return render(request, 'gallery.html',{'images':images})
+       images=Image.objects.all()
+       return render(request, 'gallery.html',{"images": images })
 
 def convert_dates(dates):
 
@@ -32,8 +33,8 @@ def search_results(request):
         searched_images = Image.search_by_category(search_term)
 
         message = f"{search_term}"
-        return render(request, 'search.html', {"message":message, "images": searched_images})
+        return render(request, 'search_results.html', {"message":message, "images": searched_images})
 
     else:
         message = "You haven't made any terms"
-        return render(request, 'search.html', {"message":message})
+        return render(request, 'search_results.html', {"message":message})
