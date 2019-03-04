@@ -23,7 +23,7 @@ class Category(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to ='gallery/')
     image_name = models.CharField(max_length =20)
-    image_description = models.TextField(max_length =250)
+    image_description = models.TextField(max_length =400)
     image_location = models.ForeignKey(Location)
     image_category = models.ForeignKey(Category)
 
@@ -48,5 +48,5 @@ class Image(models.Model):
 
     @classmethod
     def search_by_category(cls,search_term):
-        gallery = cls.objects.filter(image_category_name__icontains=search_term)
+        gallery = cls.objects.filter(image__icontains=search_term)
         return gallery    
