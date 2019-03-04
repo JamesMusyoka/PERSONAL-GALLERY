@@ -11,8 +11,10 @@ if __name__ == "__main__":
 
             try:
                 import django
-            except ImportError(
-                "Couldn't import Django."
+            except ImportError:
+
+                raise ImportError(
+                    "Couldn't import Django."
                 )
-            raise
+            
     execute_from_command_line(sys.argv)
