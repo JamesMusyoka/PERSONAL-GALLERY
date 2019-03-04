@@ -116,14 +116,14 @@ WSGI_APPLICATION = 'personalG.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'personalg',
-        'USER': 'moringaschool',
-    'PASSWORD':'37472377',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'personalg',
+#         'USER': 'moringaschool',
+#     'PASSWORD':'37472377',
+#     }
+# }
 
 
 # Internationalization
